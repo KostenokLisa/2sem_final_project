@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/LRU_Liza/LRU_header.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+assert.h
+-
+ctype.h
+-
+math.h
+-
+
+C:/LRU_Liza/cache.c
+LRU_header.h
+C:/LRU_Liza/LRU_header.h
+
+C:/LRU_Liza/main.c
+LRU_header.h
+C:/LRU_Liza/LRU_header.h
+cache.c
+C:/LRU_Liza/cache.c
+
