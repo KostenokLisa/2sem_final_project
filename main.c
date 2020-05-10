@@ -3,6 +3,7 @@
 
 int main() {
     printf("hello norm razrabotka");
+    printf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
 
 
