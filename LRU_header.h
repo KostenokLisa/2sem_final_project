@@ -1,7 +1,3 @@
-//
-// Created by Лиза on 11.05.2020.
-//
-
 
 
 #ifndef LRU_LIZA_LRU_HEADER_H
@@ -12,29 +8,30 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <assert.h>
-#include <ctype.h>
-#include <math.h>
-
-//hash table
-
-struct hash* Create_table();
-
-struct hash_node* Check_index (int index, struct hash* table);
-
-void Delete_table(struct hash* table);
 
 struct page {
     int index;
     char* data;
     int n; //кол-во символов
 };
+
+struct hash {
+    int capacity;
+    struct hash_node* elem;
+};
+
 struct node {
     char* data;
     int index;
     struct node* next;
     struct node* prev;
+};
+
+struct hash_node {
+    int index;
+    struct node* n_cache;
+    struct hash_node* next;
 };
 
 struct queue
@@ -44,6 +41,32 @@ struct queue
     struct node* head;
     struct node* tail;
 };
+
+//input
+
+void input ();
+
+struct page* input_page (int index);
+
+//hash table
+
+struct hash* create_table();
+
+void print_hash (struct hash* table);
+
+void delete_table(struct hash* table);
+
+//cache
+
+struct queue* queue_ctor();
+
+struct node* add_new_elem(struct queue* list, struct page* page, int* last_idx);
+
+void print_list(struct queue* s);
+
+void delete_queue(struct queue* list);
+
+struct node* move_elem(struct queue* list, struct node* cur_elem);
 
 #endif //LRU_LIZA_LRU_HEADER_H
 
